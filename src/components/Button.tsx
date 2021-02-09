@@ -5,6 +5,8 @@ interface Btn {
   primary: boolean;
   big: boolean;
   round: boolean;
+  buttonStyle: string;
+  buttonSize: string;
 }
 
 export const Button = styled(Link)<Partial<Btn>>`

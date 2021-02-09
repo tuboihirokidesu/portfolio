@@ -26,21 +26,19 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
   return (
     <Nav scroll={scroll}>
-      <Logo to='/'>ELIXR</Logo>
+      <Logo to='/portfolio'>ELIXR</Logo>
       <IconWrap onClick={handleClick}>
         <MenuIcon className={click ? "fas fa-times" : "fas fa-bars"} />
       </IconWrap>
       <NavMenu click={click}>
         {navMenuData.map((item, index) => (
-          <NavItems>
-            <NavMenuLinks to={item.link} key={index}>
-              {item.title}
-            </NavMenuLinks>
+          <NavItems key={index}>
+            <NavMenuLinks to={item.link}>{item.title}</NavMenuLinks>
           </NavItems>
         ))}
       </NavMenu>
       <NavBtn>
-        <Button to='/contact' primary={true} big={false}>
+        <Button to='/portfolio/contact' primary big={false}>
           Contact
         </Button>
       </NavBtn>
@@ -60,7 +58,7 @@ const Nav = styled.nav<{ scroll: boolean }>`
   padding: 1rem 2rem;
   position: fixed;
   z-index: 100;
-  background: ${({ scroll }) => (scroll ? "#242424" : "red")};
+  background: ${({ scroll }) => (scroll ? "#242424" : "transparent")};
 `;
 const Logo = styled(Link)`
   text-decoration: none;
