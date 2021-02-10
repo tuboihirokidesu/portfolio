@@ -17,6 +17,7 @@ export const Button = styled(Link)<Partial<Btn>>`
   max-width: 200px;
   cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
   transition: 0.3s;
   display: flex;
   justify-content: center;

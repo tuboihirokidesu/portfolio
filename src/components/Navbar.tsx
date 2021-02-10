@@ -8,6 +8,8 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
   const [scroll, setScroll] = useState(false);
 
+  const closeMobileMenu = () => setClick(false);
+
   const changeBackground = () => {
     if (window.scrollY >= 80) {
       setScroll(true);
@@ -26,14 +28,15 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
   return (
     <Nav scroll={scroll}>
-      <Logo to='/portfolio'>ELIXR</Logo>
       <IconWrap onClick={handleClick}>
         <MenuIcon className={click ? "fas fa-times" : "fas fa-bars"} />
       </IconWrap>
       <NavMenu click={click}>
         {navMenuData.map((item, index) => (
           <NavItems key={index}>
-            <NavMenuLinks to={item.link}>{item.title}</NavMenuLinks>
+            <NavMenuLinks to={item.link} onClick={closeMobileMenu}>
+              {item.title}
+            </NavMenuLinks>
           </NavItems>
         ))}
       </NavMenu>
@@ -60,11 +63,6 @@ const Nav = styled.nav<{ scroll: boolean }>`
   z-index: 100;
   background: ${({ scroll }) => (scroll ? "#242424" : "transparent")};
 `;
-const Logo = styled(Link)`
-  text-decoration: none;
-  color: #242424;
-  cursor: pointer;
-`;
 const IconWrap = styled.div`
   display: none;
   @media screen and (max-width: 960px) {
@@ -81,6 +79,7 @@ const MenuIcon = styled.i`
   width: 100%;
   height: 100%;
   font-size: 2rem;
+  color: #fff;
 `;
 const NavMenu = styled.ul<{ click: boolean }>`
   display: grid;

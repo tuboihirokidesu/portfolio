@@ -4,7 +4,7 @@ export type MenuData = {
 }[];
 
 export const navMenuData: MenuData = [
+  { title: "Homes", link: "/portfolio" },
   { title: "About", link: "/portfolio/about" },
-  { title: "Homes", link: "/portfolio/home" },
   { title: "Projects", link: "/portfolio/project" },
 ];
