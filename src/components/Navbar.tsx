@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { navMenuData } from "../data/NavMenuData";
 import { Button } from "./Button";
@@ -34,7 +34,7 @@ const Navbar = () => {
       <NavMenu click={click}>
         {navMenuData.map((item, index) => (
           <NavItems key={index}>
-            <NavMenuLinks to={item.link} onClick={closeMobileMenu}>
+            <NavMenuLinks to={item.link} onClick={closeMobileMenu} exact>
               {item.title}
             </NavMenuLinks>
           </NavItems>
@@ -111,7 +111,7 @@ const NavItems = styled.li`
   justify-self: center;
   align-items: center;
 `;
-const NavMenuLinks = styled(Link)`
+const NavMenuLinks = styled(NavLink)`
   color: #fff;
   display: flex;
   height: 100%;
@@ -119,6 +119,9 @@ const NavMenuLinks = styled(Link)`
   text-decoration: none;
   align-items: center;
   padding: 0.5rem 1rem;
+  &.active {
+    color: #fa923f;
+  }
   :hover {
     border-bottom: 4px solid #fff;
     transition: all 0.2s ease-out;

@@ -7,10 +7,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-type Props = {
-  onSubmit: () => void;
-};
-const Form: React.FC<Props> = ({ children }) => {
+// type Props = {
+//   onSubmit: () => void;
+// };
+const Form: React.FC<{}> = ({ children }) => {
   const styles = useStyles();
   return (
     <form className={styles.root} noValidate>

@@ -2,16 +2,16 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useData } from "./DataContext";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Typography from "@material-ui/core/Typography";
 import Checkbox from "@material-ui/core/Checkbox";
-import MainContainer from "./components/MainContainer";
-import Form from "./components/Form";
-import Input from "./components/Input";
 import * as yup from "yup";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import PrimaryBtn from "./components/Button";
+import { useData } from "../DataContext";
+import MainContainer from "../MainContainer";
+import Input from "../Input";
+import Form from "../Form";
+import PrimaryBtn from "../Button";
 
 const schema = yup.object().shape({
   email: yup
@@ -53,7 +53,7 @@ export const Step2 = () => {
       <Typography component='h2' variant='h5'>
         🦄 Step 2
       </Typography>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form>
         <Input
           ref={register}
           id='email'
@@ -89,7 +89,7 @@ export const Step2 = () => {
             }}
           />
         )}
-        <PrimaryBtn>Next</PrimaryBtn>
+        <PrimaryBtn onClick={onclick}>Next</PrimaryBtn>
       </Form>
     </MainContainer>
   );

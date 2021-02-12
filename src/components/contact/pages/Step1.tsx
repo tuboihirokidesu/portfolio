@@ -38,7 +38,7 @@ const Step1 = () => {
       <Typography component='h2' variant='h5'>
         🦄 Step 1
       </Typography>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form>
         <Input
           ref={register}
           id='firstName'
@@ -57,7 +57,7 @@ const Step1 = () => {
           error={!!errors.lastName}
           helperText={errors?.lastName?.message}
         />
-        <PrimaryBtn>Next</PrimaryBtn>
+        <PrimaryBtn onClick={onclick}>Next</PrimaryBtn>
       </Form>
     </MainContainer>
   );
