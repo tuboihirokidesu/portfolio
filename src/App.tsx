@@ -1,5 +1,5 @@
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
-import routes from "./components/config/routes";
+import routes from "./config/routes";
 import Navbar from "./components/Navbar";
 import GlobalStyle from "./globalStyle";
 

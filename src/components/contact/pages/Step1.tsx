@@ -1,14 +1,14 @@
 import { Typography } from "@material-ui/core";
-import PrimaryBtn from "./components/Button";
-import Form from "./components/Form";
-import Input from "./components/Input";
-import { useData } from "./DataContext";
-import MainContainer from "./components/MainContainer";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
-import { useHistory } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { useData } from "../DataContext";
+import MainContainer from "../MainContainer";
+// import Form from "../Form";
+import PrimaryBtn from "../Button";
+import Input from "../Input";
+import Form from "../Form";
 
 const schema = yup.object().shape({
   firstName: yup
@@ -20,25 +20,33 @@ const schema = yup.object().shape({
     .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
     .required("Last name is a required field"),
 });
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+};
+
 const Step1 = () => {
-  const { data, setValues } = useData()!;
   const history = useHistory();
-  const { register, handleSubmit, errors } = useForm({
+  const { data, setValues } = useData()!;
+  let { path, url } = useRouteMatch();
+
+  const { register, handleSubmit, errors } = useForm<FormData>({
     defaultValues: { firstName: data.firstName, lastName: data.lastName },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: any) => {
-    history.push("./step2");
+  const onSubmit = handleSubmit((data) => {
+    history.push("./contact/step2");
     setValues(data);
-  };
+  });
   return (
     <MainContainer>
       <Typography component='h2' variant='h5'>
         🦄 Step 1
       </Typography>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Input
           ref={register}
           id='firstName'
@@ -57,7 +65,7 @@ const Step1 = () => {
           error={!!errors.lastName}
           helperText={errors?.lastName?.message}
         />
-        <PrimaryBtn onClick={onclick}>Next</PrimaryBtn>
+        <PrimaryBtn>Next</PrimaryBtn>
       </Form>
     </MainContainer>
   );

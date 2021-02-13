@@ -2,7 +2,7 @@ import { makeStyles, Theme, Typography } from "@material-ui/core";
 import { FC } from "react";
 import styled from "styled-components";
 import Typed from "react-typed";
-import img from "../../../images/coffee-apple.jpg";
+import bgImage from "../images/coffee-apple.jpg";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -36,7 +36,7 @@ const Content = styled.div`
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: cover;
 
-  background-image: url(${img});
+  background-image: url(${bgImage});
 `;
 const ContactHead = styled(Typed)`
   margin-top: 8px;

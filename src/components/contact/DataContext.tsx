@@ -6,6 +6,7 @@ export interface Data {
   email: string;
   hasPhone: boolean;
   phoneNumber: number;
+  files: any;
 }
 
 export type ThemeContextType = {

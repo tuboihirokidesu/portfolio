@@ -1,24 +1,17 @@
-import { Route, Switch, useRouteMatch } from "react-router-dom";
-import { DataProvider } from "../details/DataContext";
-import ContactHerder from "../../components/details/components/ContactHerder";
-import Step1 from "../details/Step1";
-import Step2 from "../details/Step2";
-import Step3 from "../details/Step3";
+import { Route, Switch, useParams, useRouteMatch } from "react-router-dom";
+import ContactHerder from "../components/ContactHerder";
+import Step1 from "../components/contact/pages/Step1";
+import { DataProvider } from "../components/contact/DataContext";
 
 const Contact = () => {
   let { path, url } = useRouteMatch();
+  console.log(path);
 
   return (
     <>
-      <DataProvider>
-        <ContactHerder>
-          <Switch>
-            <Route exact path={path} component={Step1} />
-            <Route path={`${path}/step2`} component={Step2} />
-            <Route path={`${path}/step3`} component={Step3} />
-          </Switch>
-        </ContactHerder>
-      </DataProvider>
+      <ContactHerder>
+        <Step1 />
+      </ContactHerder>
     </>
   );
 };

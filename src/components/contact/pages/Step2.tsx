@@ -12,6 +12,7 @@ import MainContainer from "../MainContainer";
 import Input from "../Input";
 import Form from "../Form";
 import PrimaryBtn from "../Button";
+import ContactHerder from "../../ContactHerder";
 
 const schema = yup.object().shape({
   email: yup
@@ -30,8 +31,8 @@ const normalizePhoneNumber = (value: any) => {
 };
 
 export const Step2 = () => {
-  const { setValues, data } = useData()!;
   const history = useHistory();
+  const { setValues, data } = useData()!;
   const { register, handleSubmit, watch, errors } = useForm({
     defaultValues: {
       email: data.email,
@@ -43,55 +44,57 @@ export const Step2 = () => {
   });
   const hasPhone = watch("hasPhone");
 
-  const onSubmit = (data: any) => {
-    history.push("./portfolio/contact/step3");
+  const onSubmit = handleSubmit((data) => {
+    history.push("./step3");
     setValues(data);
-  };
+  });
 
   return (
-    <MainContainer>
-      <Typography component='h2' variant='h5'>
-        🦄 Step 2
-      </Typography>
-      <Form>
-        <Input
-          ref={register}
-          id='email'
-          type='email'
-          label='Email'
-          name='email'
-          error={!!errors.email}
-          helperText={errors?.email?.message}
-          required
-        />
-
-        <FormControlLabel
-          control={
-            <Checkbox
-              defaultChecked={data.hasPhone}
-              color='primary'
-              inputRef={register}
-              name='hasPhone'
-            />
-          }
-          label='Do you have a phone'
-        />
-
-        {hasPhone && (
+    <ContactHerder>
+      <MainContainer>
+        <Typography component='h2' variant='h5'>
+          🦄 Step 2
+        </Typography>
+        <Form onSubmit={onSubmit}>
           <Input
             ref={register}
-            id='phoneNumber'
-            type='tel'
-            label='Phone Number'
-            name='phoneNumber'
-            onChange={(event: any) => {
-              event.target.value = normalizePhoneNumber(event.target.value);
-            }}
+            id='email'
+            type='email'
+            label='Email'
+            name='email'
+            error={!!errors.email}
+            helperText={errors?.email?.message}
+            required
           />
-        )}
-        <PrimaryBtn onClick={onclick}>Next</PrimaryBtn>
-      </Form>
-    </MainContainer>
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                defaultChecked={data.hasPhone}
+                color='primary'
+                inputRef={register}
+                name='hasPhone'
+              />
+            }
+            label='Do you have a phone'
+          />
+
+          {hasPhone && (
+            <Input
+              ref={register}
+              id='phoneNumber'
+              type='tel'
+              label='Phone Number'
+              name='phoneNumber'
+              onChange={(event: any) => {
+                event.target.value = normalizePhoneNumber(event.target.value);
+              }}
+            />
+          )}
+          <PrimaryBtn>Next</PrimaryBtn>
+        </Form>
+      </MainContainer>
+    </ContactHerder>
   );
 };
 export default Step2;
