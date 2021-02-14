@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { navMenuData } from "../data/NavMenuData";
 import { Button } from "./Button";
@@ -27,14 +27,19 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click);
   return (
-    <Nav scroll={scroll}>
+    <Nav className='click-bg-change' scroll={scroll} click={click}>
       <IconWrap onClick={handleClick}>
         <MenuIcon className={click ? "fas fa-times" : "fas fa-bars"} />
       </IconWrap>
       <NavMenu click={click}>
         {navMenuData.map((item, index) => (
           <NavItems key={index}>
-            <NavMenuLinks to={item.link} onClick={closeMobileMenu} exact>
+            <NavMenuLinks
+              to={item.link}
+              onClick={closeMobileMenu}
+              className={item.class}
+              exact
+            >
               {item.title}
             </NavMenuLinks>
           </NavItems>
@@ -51,9 +56,8 @@ const Navbar = () => {
 
 export default Navbar;
 
-const Nav = styled.nav<{ scroll: boolean }>`
+const Nav = styled.nav<{ scroll: boolean; click: boolean }>`
   height: 80px;
-  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,6 +66,10 @@ const Nav = styled.nav<{ scroll: boolean }>`
   position: fixed;
   z-index: 100;
   background: ${({ scroll }) => (scroll ? "#242424" : "transparent")};
+  &.click-bg-change {
+    background: ${({ click }) => (click ? "#242424" : "transparent")};
+    transition: all 0.5s ease;
+  }
 `;
 const IconWrap = styled.div`
   display: none;
@@ -112,13 +120,18 @@ const NavItems = styled.li`
   align-items: center;
 `;
 const NavMenuLinks = styled(NavLink)`
-  color: #fff;
-  display: flex;
-  height: 100%;
-  justify-self: center;
-  text-decoration: none;
-  align-items: center;
-  padding: 0.5rem 1rem;
+  &.nav-links {
+    color: #fff;
+    display: flex;
+    height: 100%;
+    justify-self: center;
+    text-decoration: none;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+  &.nav-links-mobile {
+    display: none;
+  }
   &.active {
     color: #fa923f;
   }
@@ -127,11 +140,27 @@ const NavMenuLinks = styled(NavLink)`
     transition: all 0.2s ease-out;
   }
   @media screen and (max-width: 960px) {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    font-size: 2rem;
-    z-index: 1;
+    &.nav-links {
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      font-size: 2rem;
+      z-index: 1;
+    }
+    &.nav-links-mobile {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+      border-radius: 4px;
+      width: 100%;
+      text-decoration: none;
+      font-size: 1.5rem;
+      background-color: transparent;
+      color: #fff;
+      padding: 14px 20px;
+      border: 1px solid #fff;
+      transition: all 0.3s ease-out;
+    }
   }
 `;
 const NavBtn = styled.div`

@@ -1,12 +1,7 @@
-import { Route, Switch, useParams, useRouteMatch } from "react-router-dom";
 import ContactHerder from "../components/ContactHerder";
-import Step1 from "../components/contact/pages/Step1";
-import { DataProvider } from "../components/contact/DataContext";
+import Step1 from "./contact/Step1";
 
-const Contact = () => {
-  let { path, url } = useRouteMatch();
-  console.log(path);
-
+const Contact: React.FC = () => {
   return (
     <>
       <ContactHerder>

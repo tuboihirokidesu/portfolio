@@ -1,5 +1,6 @@
 import { TextField } from "@material-ui/core";
 import { forwardRef } from "react";
+import styled from "styled-components";
 
 type Props = {
   id: string;
@@ -13,7 +14,7 @@ type Props = {
 };
 const Input = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   return (
-    <TextField
+    <TextFields
       variant='outlined'
       margin='normal'
       inputRef={ref}
@@ -24,3 +25,8 @@ const Input = forwardRef<HTMLButtonElement, Props>((props, ref) => {
 });
 
 export default Input;
+
+const TextFields = styled(TextField)`
+  background-color: #fff;
+  border-radius: 4px;
+`;

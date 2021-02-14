@@ -7,12 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import Checkbox from "@material-ui/core/Checkbox";
 import * as yup from "yup";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import { useData } from "../DataContext";
-import MainContainer from "../MainContainer";
-import Input from "../Input";
-import Form from "../Form";
-import PrimaryBtn from "../Button";
-import ContactHerder from "../../ContactHerder";
+import ContactHerder from "../../components/ContactHerder";
+import MainContainer from "../../components/contact/MainContainer";
+import Form from "../../components/contact/Form";
+import Input from "../../components/contact/Input";
+import PrimaryBtn from "../../components/contact/Button";
+import { useData } from "../../components/contact/DataContext";
 
 const schema = yup.object().shape({
   email: yup
@@ -30,10 +30,16 @@ const normalizePhoneNumber = (value: any) => {
   return phoneNumber.formatInternational();
 };
 
-export const Step2 = () => {
+type FormData = {
+  email: string;
+  hasPhone: boolean;
+  phoneNumber: number;
+};
+
+export const Step2: React.FC = () => {
   const history = useHistory();
   const { setValues, data } = useData()!;
-  const { register, handleSubmit, watch, errors } = useForm({
+  const { register, handleSubmit, watch, errors } = useForm<FormData>({
     defaultValues: {
       email: data.email,
       hasPhone: data.hasPhone,
@@ -45,7 +51,7 @@ export const Step2 = () => {
   const hasPhone = watch("hasPhone");
 
   const onSubmit = handleSubmit((data) => {
-    history.push("./step3");
+    history.push("./result");
     setValues(data);
   });
 

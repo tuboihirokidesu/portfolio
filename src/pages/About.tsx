@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import bgImage from "../images/coffee-apple.jpg";
 
-const About = () => {
+const About: React.FC = () => {
   return <Content></Content>;
 };
 

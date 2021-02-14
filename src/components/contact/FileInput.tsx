@@ -53,8 +53,8 @@ export const FileInput: FC<Props> = ({ control, name }) => {
               </Paper>
             )}
           </Dropzone>
-          {/* <List>
-            {value.map((f, index) => (
+          <List>
+            {value.map((f: any, index: any) => (
               <ListItem key={index}>
                 <ListItemIcon>
                   <InsertDriveFile />
@@ -62,7 +62,7 @@ export const FileInput: FC<Props> = ({ control, name }) => {
                 <ListItemText primary={f.name} secondary={f.size} />
               </ListItem>
             ))}
-          </List> */}
+          </List>
         </>
       )}
     />

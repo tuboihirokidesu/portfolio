@@ -1,5 +1,4 @@
 import { Container, makeStyles, Theme } from "@material-ui/core";
-import { Props } from "./types/propsTypes";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -10,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const MainContainer: React.FC<Props> = ({ children }) => {
+const MainContainer: React.FC<{ children: any }> = ({ children }) => {
   const styles = useStyles();
   return (
     <Container className={styles.root} component='main' maxWidth='xs'>

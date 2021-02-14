@@ -6,8 +6,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+type Props = {
+  onClick?: () => Promise<void>;
+};
 
-const PrimaryBtn: React.FC<{}> = ({ children }) => {
+const PrimaryBtn: React.FC<Props> = ({ children }) => {
   const styles = useStyles();
   return (
     <Button

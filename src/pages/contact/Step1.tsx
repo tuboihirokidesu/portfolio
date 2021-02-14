@@ -2,13 +2,14 @@ import { Typography } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory, useRouteMatch } from "react-router-dom";
-import { useData } from "../DataContext";
-import MainContainer from "../MainContainer";
-// import Form from "../Form";
-import PrimaryBtn from "../Button";
-import Input from "../Input";
-import Form from "../Form";
+import { useHistory } from "react-router-dom";
+import styled from "styled-components";
+import MainContainer from "../../components/contact/MainContainer";
+1;
+import Form from "../../components/contact/Form";
+import { useData } from "../../components/contact/DataContext";
+import Input from "../../components/contact/Input";
+import PrimaryBtn from "../../components/contact/Button";
 
 const schema = yup.object().shape({
   firstName: yup
@@ -26,10 +27,9 @@ type FormData = {
   lastName: string;
 };
 
-const Step1 = () => {
+const Step1: React.FC = () => {
   const history = useHistory();
   const { data, setValues } = useData()!;
-  let { path, url } = useRouteMatch();
 
   const { register, handleSubmit, errors } = useForm<FormData>({
     defaultValues: { firstName: data.firstName, lastName: data.lastName },
@@ -43,9 +43,7 @@ const Step1 = () => {
   });
   return (
     <MainContainer>
-      <Typography component='h2' variant='h5'>
-        🦄 Step 1
-      </Typography>
+      <FormHead variant='h5'>🦄 Step 1</FormHead>
       <Form onSubmit={onSubmit}>
         <Input
           ref={register}
@@ -72,3 +70,8 @@ const Step1 = () => {
 };
 
 export default Step1;
+
+const FormHead = styled(Typography)`
+  color: #f9ab00;
+  font-weight: 300;
+`;

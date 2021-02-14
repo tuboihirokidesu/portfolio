@@ -1,25 +1,12 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core";
 import { FC } from "react";
 import styled from "styled-components";
 import Typed from "react-typed";
-import bgImage from "../images/coffee-apple.jpg";
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    margin: theme.spacing(3, 0, 2),
-    marginTop: "150px",
-    textAlign: "center",
-    fontSize: "40px",
-    color: "deeppink",
-    textShadow: "1px 1px darkmagenta",
-  },
-}));
+import formImage from "../images/img-input.jpg";
 
 const ContactHerder: FC<{}> = ({ children }) => {
-  const styles = useStyles();
   return (
     <Content>
-      <ContactHead strings={["The Ultimate Form Challenge"]} typeSpeed={80} />
+      <ContactHead strings={["Contact Form"]} typeSpeed={80} />
       {children}
     </Content>
   );
@@ -28,21 +15,22 @@ const ContactHerder: FC<{}> = ({ children }) => {
 export default ContactHerder;
 
 const Content = styled.div`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: 100vh;
   object-fit: cover;
-
-  background-image: url(${bgImage});
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
+  background-image: url(${formImage});
 `;
 const ContactHead = styled(Typed)`
   margin-top: 8px;
-  color: #e012ad;
-  font-size: 24px;
+  color: #3612da;
+  font-size: 28px;
   margin-top: 200px;
+  font-weight: bold;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 
