@@ -11,7 +11,7 @@ type Props = {
 const CardItem: React.FC<Props> = ({ src, text, label, path }) => {
   return (
     <CardsItem>
-      <CardsItemLink to={path}>
+      <CardsItemLink href={path} target='_blank'>
         <CardsPicWrap data-category={label}>
           <CardsImage src={src} />
         </CardsPicWrap>
@@ -35,7 +35,7 @@ const CardsItem = styled.li`
     margin-bottom: 2rem;
   }
 `;
-const CardsItemLink = styled(Link)`
+const CardsItemLink = styled.a`
   display: flex;
   flex-flow: column;
   width: 100%;
