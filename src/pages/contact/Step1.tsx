@@ -5,7 +5,6 @@ import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import MainContainer from "../../components/contact/MainContainer";
-1;
 import Form from "../../components/contact/Form";
 import { useData } from "../../components/contact/DataContext";
 import Input from "../../components/contact/Input";
