@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { navMenuData } from "../data/NavMenuData";
+import { navMenuData } from "../data/navMenuData";
 import { Button } from "./Button";
 
 const Navbar = () => {
@@ -27,7 +27,11 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click);
   return (
-    <Nav className='click-bg-change' scroll={scroll} click={click}>
+    <Nav
+      className={scroll ? "scroll-bg-change" : "click-bg-change"}
+      scroll={scroll}
+      click={click}
+    >
       <IconWrap onClick={handleClick}>
         <MenuIcon className={click ? "fas fa-times" : "fas fa-bars"} />
       </IconWrap>
@@ -65,7 +69,9 @@ const Nav = styled.nav<{ scroll: boolean; click: boolean }>`
   padding: 1rem 2rem;
   position: fixed;
   z-index: 100;
-  background: ${({ scroll }) => (scroll ? "#242424" : "transparent")};
+  &.scroll-bg-change {
+    background: ${({ scroll }) => (scroll ? "#242424" : "transparent")};
+  }
   &.click-bg-change {
     background: ${({ click }) => (click ? "#242424" : "transparent")};
     transition: all 0.5s ease;
