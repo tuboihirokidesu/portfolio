@@ -4,6 +4,7 @@ import Project from "../pages/Project";
 import Contact from "../pages/Contact";
 import Result from "../pages/contact/Result";
 import Step2 from "../pages/contact/Step2";
+import NoughtsAndCrosses from "../pages/project/NoughtsAndCrosses";
 
 export type IRoute = {
   path: string;
@@ -48,6 +49,12 @@ const routes: IRoute[] = [
     path: "/portfolio/contact/result",
     name: "Contact Page",
     component: Result,
+    exact: true,
+  },
+  {
+    path: "/portfolio/project/noughts-and-crosses",
+    name: "Contact Page",
+    component: NoughtsAndCrosses,
     exact: true,
   },
 ];

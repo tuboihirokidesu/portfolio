@@ -5,19 +5,12 @@ export type CardData = {
   path: string;
 }[];
 
-const markdown = `# markdown test
-
-[google](https://google.co.jp)
-
-[about](/about)
-`;
-
 export const cardData: CardData = [
   {
-    src: "images/pg-image.jpg",
-    text: "Shopping-Cart",
-    label: "React & TypeScript",
-    path: "https://tuboihirokidesu.github.io/react-shopping-cart/",
+    src: "images/noughts-and-crosses.png",
+    text: "マルバツゲーム",
+    label: "React Hooks",
+    path: "./project/noughts-and-crosses",
   },
   {
     src: "images/pg-image.jpg",
