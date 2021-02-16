@@ -11,7 +11,7 @@ type Props = {
 const CardItem: React.FC<Props> = ({ src, text, label, path }) => {
   return (
     <CardsItem>
-      <CardsItemLink href={path} target='_blank'>
+      <CardsItemLink to={path} target='_blank'>
         <CardsPicWrap data-category={label}>
           <CardsImage src={src} />
         </CardsPicWrap>
@@ -35,7 +35,7 @@ const CardsItem = styled.li`
     margin-bottom: 2rem;
   }
 `;
-const CardsItemLink = styled.a`
+const CardsItemLink = styled(Link)`
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -91,4 +91,6 @@ const CardsItemText = styled.h5`
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+  display: flex;
+  justify-content: center;
 `;
