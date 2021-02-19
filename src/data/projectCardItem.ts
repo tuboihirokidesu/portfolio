@@ -14,9 +14,9 @@ export const cardData: CardData = [
   },
   {
     src: "images/pg-image.jpg",
-    text: "Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-    label: "TypeScript",
-    path: "./B",
+    text: "コロナの情勢",
+    label: "Axios",
+    path: "./project/corona",
   },
   {
     src: "images/pg-image.jpg",
