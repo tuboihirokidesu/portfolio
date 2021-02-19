@@ -11,7 +11,7 @@ type Props = {
 const CardItem: React.FC<Props> = ({ src, text, label, path }) => {
   return (
     <CardsItem>
-      <CardsItemLink to={path} target='_blank'>
+      <CardsItemLink to={path}>
         <CardsPicWrap data-category={label}>
           <CardsImage src={src} />
         </CardsPicWrap>
