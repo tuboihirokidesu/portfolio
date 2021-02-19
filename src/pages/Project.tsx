@@ -1,6 +1,6 @@
 import Particles from "react-particles-js";
 import styled from "styled-components";
-import Card from "./project/Card";
+import Card from "./project1/Card";
 
 const Project = () => {
   return (
