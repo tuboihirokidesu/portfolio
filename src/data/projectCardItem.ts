@@ -13,7 +13,7 @@ export const cardData: CardData = [
     path: "./project/noughts-and-crosses",
   },
   {
-    src: "images/pg-image.jpg",
+    src: "images/covid-19.jpg",
     text: "コロナの情勢",
     label: "Axios",
     path: "./project/corona",

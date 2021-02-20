@@ -7,3 +7,10 @@ export type CoronaData = {
 
 export type Countries = { countries: { name: string }[] };
 export type Country = { name: string }[];
+
+export type DailyData = {
+  confirmed: { total: number };
+  deaths: { total: number };
+  recovered: { total: number };
+  reportDate: string;
+}[];

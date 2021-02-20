@@ -8,7 +8,7 @@ import CountriesPicker from "./CountriesPicker";
 
 const Corona = () => {
   const [data, setData] = useState({} as CoronaData);
-  const [contry, setCountry] = useState("");
+  const [country, setCountry] = useState("");
   useEffect(() => {
     const fetchAPI = async () => {
       const { confirmed, recovered, lastUpdate, deaths } = await fetchData();
@@ -29,7 +29,7 @@ const Corona = () => {
     <Container>
       <Cards data={data} />
       <CountriesPicker handleCountryChange={handleCountryChange} />
-      <Chart />
+      <Chart data={data} country={country} />
     </Container>
   );
 };
@@ -37,11 +37,17 @@ const Corona = () => {
 export default Corona;
 
 const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  margin: 20px;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
   flex-direction: column;
 
-  @media only screen and (max-width: 770px) {
+  @media only screen and (max-width: 1300px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 10%;
   }
 `;

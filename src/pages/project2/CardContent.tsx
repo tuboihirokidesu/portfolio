@@ -24,7 +24,7 @@ const CardContent: React.FC<Props> = ({
   value,
 }) => {
   return (
-    <CardGrid item xs={12} md={3} className={cx("card", className)}>
+    <CardGrid item xs={12} className={cx("card", className)}>
       <CardContents>
         <Typography color='textSecondary' gutterBottom>
           {cardTitle}
