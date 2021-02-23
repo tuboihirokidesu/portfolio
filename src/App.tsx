@@ -1,13 +1,12 @@
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import routes from "./config/routes";
-import Navbar from "./components/Navbar";
 import GlobalStyle from "./globalStyle";
+import ShoppingCart from "./pages/project3/ShoppingCart";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Navbar />
       <Switch>
         {routes.map((route, index) => {
           return (
@@ -25,6 +24,7 @@ const App = () => {
             />
           );
         })}
+        <ShoppingCart />
       </Switch>
     </>
   );

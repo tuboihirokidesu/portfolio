@@ -6,14 +6,7 @@ import Result from "../pages/contact/Result";
 import Step2 from "../pages/contact/Step2";
 import NoughtsAndCrosses from "../pages/project1/NoughtsAndCrosses";
 import Corona from "../pages/project2/Corona";
-
-export type IRoute = {
-  path: string;
-  name: string;
-  exact: boolean;
-  component: any;
-  props?: any;
-};
+import { IRoute } from "./Interfaces";
 
 const routes: IRoute[] = [
   {
