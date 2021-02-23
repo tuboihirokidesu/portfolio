@@ -1,5 +1,6 @@
 import Particles from "react-particles-js";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 import Card from "./project1/Card";
 
 const Project = () => {
@@ -58,6 +59,7 @@ const Project = () => {
           },
         }}
       />
+      <Navbar />
       <Card />
     </div>
   );

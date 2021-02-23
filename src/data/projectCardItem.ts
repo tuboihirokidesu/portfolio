@@ -19,10 +19,10 @@ export const cardData: CardData = [
     path: "./project/corona",
   },
   {
-    src: "images/pg-image.jpg",
-    text: "Cccccccccccccccccccccccccccccccccccc",
+    src: "images/shopping-cart.jpg",
+    text: "ショッピングカート",
     label: "JavaScript",
-    path: "./C",
+    path: "./project/shopping-cart",
   },
   {
     src: "images/pg-image.jpg",

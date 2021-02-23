@@ -1,8 +1,13 @@
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 import bgImage from "../images/coffee-apple.jpg";
 
 const About: React.FC = () => {
-  return <Content></Content>;
+  return (
+    <Content>
+      <Navbar />
+    </Content>
+  );
 };
 
 export default About;
