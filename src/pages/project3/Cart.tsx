@@ -1,6 +1,5 @@
 import { Container, Grid, Typography } from "@material-ui/core";
 import { useContext } from "react";
-import styled from "styled-components";
 import { CartItem } from "../../components/project3";
 import CartContext from "../../components/project3/context/cart";
 
@@ -73,9 +72,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-const Wrap = styled(Grid)`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;

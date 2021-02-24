@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ICartItem } from "../../components/project3/interfaces/item";
 import { fetchShoppingData } from "../../components/project3/api/index";
 import {
-  Container,
   createStyles,
   Grid,
   LinearProgress,
@@ -21,6 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     root: {
       flexGrow: 1,
+    },
+    loading: {
+      marginTop: "7%",
     },
   })
 );
@@ -42,7 +44,9 @@ const Shop = () => {
   return (
     <>
       {isLoading ? (
-        <LinearProgress />
+        <div className={classes.loading}>
+          <LinearProgress />
+        </div>
       ) : (
         <main className={classes.content}>
           <div className={classes.toolbar} />

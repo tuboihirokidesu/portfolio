@@ -1,7 +1,5 @@
 import {
-  Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
@@ -11,7 +9,6 @@ import {
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
 import { useContext } from "react";
-import styled from "styled-components";
 import CartContext from "./context/cart";
 import { ICartItem } from "./interfaces/item";
 
@@ -105,7 +102,7 @@ const ShopItem: React.FC<Props> = ({ item }) => {
 
 export default ShopItem;
 
-const CardWrap = styled(CardActions)`
-  display: flex;
-  justify-content: center;
-`;
+// const CardWrap = styled(CardActions)`
+//   display: flex;
+//   justify-content: center;
+// `;

@@ -1,36 +1,21 @@
-import classes from "*.module.css";
 import {
   AppBar,
   Badge,
   IconButton,
-  Menu,
-  MenuItem,
-  Paper,
-  Tab,
-  Tabs,
   Toolbar,
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { useContext, useEffect, useState } from "react";
-import { Link, Route, useLocation } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from "react-router-dom";
 import CartContext from "../context/cart";
 import useStyles from "./styles";
 
 const Navigation = () => {
   const classes = useStyles();
-  const location = useLocation();
 
   const [count, setCount] = useState<number>(0);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-
   const cartContext = useContext(CartContext);
-
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
-  const mobileMenuId = "primary-search-account-menu-mobile";
 
   useEffect(() => {
     let _count = 0;
@@ -42,6 +27,7 @@ const Navigation = () => {
     if (_count === count) return;
 
     setCount(_count);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartContext]);
 
   return (

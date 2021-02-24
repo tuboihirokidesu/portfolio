@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Bar, Doughnut, Line } from "react-chartjs-2";
+import { Doughnut, Line } from "react-chartjs-2";
 import styled from "styled-components";
 import { fetchDailyData } from "../../components/project2/api";
 import {

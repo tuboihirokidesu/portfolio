@@ -17,6 +17,7 @@ const NoughtsAndCrosses = () => {
     } else {
       setPlayer("X");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [board]);
 
   useEffect(() => {
