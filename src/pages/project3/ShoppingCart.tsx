@@ -5,9 +5,8 @@ import {
   cartReducer,
   initialCartState,
 } from "../../components/project3/context/cart";
-import Navigation from "../../components/project3/Navigation";
+import { Navigation } from "../../components/project3";
 import { shoppingRoutes } from "../../config/shoppingRoutes";
-import Shop from "./Shop";
 
 const ShoppingCart = () => {
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);

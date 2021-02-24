@@ -1,10 +1,32 @@
 import { useEffect, useState } from "react";
 import { ICartItem } from "../../components/project3/interfaces/item";
 import { fetchShoppingData } from "../../components/project3/api/index";
-import { Container, Grid, LinearProgress } from "@material-ui/core";
-import ShopItem from "../../components/project3/ShopItem";
+import {
+  Container,
+  createStyles,
+  Grid,
+  LinearProgress,
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
+import { ShopItem } from "../../components/project3";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    toolbar: theme.mixins.toolbar,
+    content: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.default,
+      padding: theme.spacing(3),
+    },
+    root: {
+      flexGrow: 1,
+    },
+  })
+);
 
 const Shop = () => {
+  const classes = useStyles();
   const [data, setData] = useState([] as ICartItem[]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,11 +44,16 @@ const Shop = () => {
       {isLoading ? (
         <LinearProgress />
       ) : (
-        <Grid container justify='center'>
-          {data.map((item, i) => (
-            <ShopItem item={item} key={i} />
-          ))}
-        </Grid>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Grid container justify='center' spacing={4}>
+            {data.map((item, i) => (
+              <Grid item key={i} xs={12} sm={6} md={4} lg={3}>
+                <ShopItem item={item} />
+              </Grid>
+            ))}
+          </Grid>
+        </main>
       )}
     </>
   );

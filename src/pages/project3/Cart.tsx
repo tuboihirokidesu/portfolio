@@ -1,37 +1,72 @@
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 import { useContext } from "react";
 import styled from "styled-components";
-import CartItem from "../../components/project3/CartItem";
+import { CartItem } from "../../components/project3";
 import CartContext from "../../components/project3/context/cart";
+
+import { makeStyles, Theme } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) => ({
+  toolbar: theme.mixins.toolbar,
+  title: {
+    marginTop: "10%",
+  },
+  emptyButton: {
+    minWidth: "150px",
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "5px",
+    },
+    [theme.breakpoints.up("xs")]: {
+      marginRight: "20px",
+    },
+  },
+  checkoutButton: {
+    minWidth: "150px",
+  },
+  link: {
+    textDecoration: "none",
+  },
+  cardItem: {
+    display: "flex",
+  },
+}));
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
+  const classes = useStyles();
   return (
     <>
       <Container>
-        <Wrap>
+        <div className={classes.toolbar}>
+          <Typography className={classes.title} variant='h3' gutterBottom>
+            Your Shopping Cart
+          </Typography>
           {Object.keys(cartContext.cartState.items).length > 0 ? (
-            <div>
-              {Object.keys(cartContext.cartState.items).map((value, index) => {
-                let _items = cartContext.cartState.items[value];
+            <>
+              <Grid container spacing={3} className={classes.cardItem}>
+                {Object.keys(cartContext.cartState.items).map(
+                  (value, index) => {
+                    let _items = cartContext.cartState.items[value];
 
-                if (_items.length > 0) {
-                  return (
-                    <CartItem
-                      key={index}
-                      item={_items[0]}
-                      quantity={_items.length}
-                    />
-                  );
-                } else {
-                  return null;
-                }
-              })}
-            </div>
+                    if (_items.length > 0) {
+                      return (
+                        <CartItem
+                          key={index}
+                          item={_items[0]}
+                          quantity={_items.length}
+                        />
+                      );
+                    } else {
+                      return null;
+                    }
+                  }
+                )}
+              </Grid>
+            </>
           ) : (
             <p>カートが空です。</p>
           )}
-        </Wrap>
+        </div>
       </Container>
     </>
   );
