@@ -28,16 +28,16 @@ const HeroSection = () => {
         }}
       />
       <HeroContainer className='image-styled'>
-        <HeroHeader strings={["Hioki Tuboi"]} typeSpeed={80} />
+        <HeroHeader strings={["Portfolio"]} typeSpeed={80} />
         <HeroParagraph
-          strings={["React", "TypeScript"]}
+          strings={["Hiroki", "Tsuboi"]}
           typeSpeed={70}
           backSpeed={40}
           loop
         />
-        <HeroBtnWrap>
+        {/* <HeroBtnWrap>
           <Button to='/contact'>GET STARTED</Button>
-        </HeroBtnWrap>
+        </HeroBtnWrap> */}
       </HeroContainer>
     </>
   );
@@ -63,7 +63,8 @@ const HeroContainer = styled.div`
 `;
 
 const HeroHeader = styled(Typed)`
-  color: #fff;
+  color: tomato;
+  font-weight: 600;
   font-size: 100px;
   margin-top: 200px;
 
@@ -74,7 +75,7 @@ const HeroHeader = styled(Typed)`
 `;
 const HeroParagraph = styled(Typed)`
   margin-top: 8px;
-  color: #fff;
+  color: #fa923f;
   font-size: 32px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { cardData } from "../../data/projectCardItem";
 import CardItem from "./CardItems";
+import bgImage from "../../images/coffee-apple.jpg";
 
 const Card: React.FC = () => {
   return (
@@ -28,8 +29,7 @@ export default Card;
 
 const Cards = styled.div`
   padding: 6rem;
-  box-shadow: inset 0 0 0 1000px rgba(202, 6, 6, 0.616);
-  background: #fff;
+  background-image: url(${bgImage});
 `;
 const CardsHeader = styled.h1`
   text-align: center;

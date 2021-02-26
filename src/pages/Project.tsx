@@ -1,7 +1,7 @@
 import Particles from "react-particles-js";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import Card from "./project1/Card";
+import Card from "./project_card/Card";
 
 const Project = () => {
   return (

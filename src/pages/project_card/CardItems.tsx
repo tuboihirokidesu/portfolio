@@ -39,9 +39,7 @@ const CardsItemLink = styled(Link)`
   display: flex;
   flex-flow: column;
   width: 100%;
-  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.1));
-  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.1));
+  box-shadow: 0 6px 20px rgba(230, 126, 57, 0.8);
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
@@ -88,7 +86,7 @@ const CardsItemInfo = styled.div`
   padding: 20px 30px 30px;
 `;
 const CardsItemText = styled.h5`
-  color: #252e48;
+  color: #fff;
   font-size: 18px;
   line-height: 24px;
   display: flex;
