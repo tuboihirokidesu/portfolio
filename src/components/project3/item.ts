@@ -1,4 +1,4 @@
-export interface ICartItem {
+interface ICartItem {
   id: number;
   category: string;
   description: string;
@@ -6,3 +6,5 @@ export interface ICartItem {
   price: number;
   title: string;
 }
+
+export default ICartItem;

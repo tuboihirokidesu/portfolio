@@ -1,15 +1,5 @@
-import styled from "styled-components";
-
-type Props = {
-  val: string;
-  chooseSquare: () => void;
-};
-
-const Square: React.FC<Props> = ({ val, chooseSquare }) => {
-  return <SquareWrap onClick={chooseSquare}>{val}</SquareWrap>;
-};
-
-export default Square;
+import React from 'react';
+import styled from 'styled-components';
 
 const SquareWrap = styled.div`
   cursor: pointer;
@@ -25,3 +15,14 @@ const SquareWrap = styled.div`
     background-color: #ebe048;
   }
 `;
+
+type Props = {
+  val: string;
+  chooseSquare: () => void;
+};
+
+const Square = ({ val, chooseSquare }: Props) => (
+  <SquareWrap onClick={chooseSquare}>{val}</SquareWrap>
+);
+
+export default Square;

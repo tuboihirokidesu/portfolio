@@ -1,32 +1,99 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { patterns } from "../../components/project1/patterns";
-import Square from "./Square";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { patterns } from 'components/project1/patterns';
+import Square from './Square';
+
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const Wrap = styled.div`
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: #b3df3a;
+  border: 1px solid #242424;
+`;
+const Row = styled.div`
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+`;
 
 const NoughtsAndCrosses = () => {
-  const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
-  const [player, setPlayer] = useState("X");
-  const [result, setResult] = useState({ winner: "none", state: "none" });
+  const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
+  const [player, setPlayer] = useState('X');
+  const [result, setResult] = useState({ winner: 'none', state: 'none' });
+
+  const chooseSquare = (square: number) => {
+    setBoard(
+      board.map((val, id) => {
+        if (id === square && val === '') {
+          return player;
+        }
+
+        return val;
+      }),
+    );
+  };
+
+  const checkWin = () => {
+    patterns.forEach((currentPattern) => {
+      const firstPlayer = board[currentPattern[0]];
+      if (firstPlayer === '') return;
+      let foundWinningPattern = true;
+      currentPattern.forEach((id) => {
+        if (board[id] !== firstPlayer) {
+          foundWinningPattern = false;
+        }
+      });
+      if (foundWinningPattern) {
+        setResult({ winner: player, state: 'Won' });
+      }
+    });
+  };
+
+  const checkIfTie = () => {
+    let filled = true;
+    board.forEach((square) => {
+      if (square === '') {
+        filled = false;
+      }
+    });
+
+    if (filled) {
+      setResult({ winner: 'No One', state: 'Tie' });
+    }
+  };
 
   useEffect(() => {
     checkWin();
     checkIfTie();
 
-    if (player === "X") {
-      setPlayer("O");
+    if (player === 'X') {
+      setPlayer('O');
     } else {
-      setPlayer("X");
+      setPlayer('X');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [board]);
 
+  const restartGame = () => {
+    setBoard(['', '', '', '', '', '', '', '', '']);
+    setPlayer('O');
+  };
+
   useEffect(() => {
     switch (result.state) {
-      case "Won":
+      case 'Won':
         alert(`${result.winner}の勝利`);
 
         break;
-      case "Tie":
+      case 'Tie':
         alert(`ドロー、、決着つかず`);
 
         break;
@@ -36,52 +103,6 @@ const NoughtsAndCrosses = () => {
     }
     restartGame();
   }, [result]);
-
-  const chooseSquare = (square: number) => {
-    setBoard(
-      board.map((val, id) => {
-        if (id === square && val === "") {
-          return player;
-        }
-
-        return val;
-      })
-    );
-  };
-
-  const checkWin = () => {
-    patterns.forEach((currentPattern) => {
-      const firstPlayer = board[currentPattern[0]];
-      if (firstPlayer === "") return;
-      let foundWinningPattern = true;
-      currentPattern.forEach((id) => {
-        if (board[id] !== firstPlayer) {
-          foundWinningPattern = false;
-        }
-      });
-      if (foundWinningPattern) {
-        setResult({ winner: player, state: "Won" });
-      }
-    });
-  };
-
-  const checkIfTie = () => {
-    let filled = true;
-    board.forEach((square) => {
-      if (square === "") {
-        filled = false;
-      }
-    });
-
-    if (filled) {
-      setResult({ winner: "No One", state: "Tie" });
-    }
-  };
-
-  const restartGame = () => {
-    setBoard(["", "", "", "", "", "", "", "", ""]);
-    setPlayer("O");
-  };
 
   return (
     <Container>
@@ -107,24 +128,3 @@ const NoughtsAndCrosses = () => {
 };
 
 export default NoughtsAndCrosses;
-
-const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Wrap = styled.div`
-  height: 300px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  background-color: #b3df3a;
-  border: 1px solid #242424;
-`;
-const Row = styled.div`
-  flex: 33%;
-  display: flex;
-  flex-direction: row;
-`;

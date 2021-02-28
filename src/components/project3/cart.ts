@@ -1,8 +1,8 @@
-import { createContext } from "react";
-import { ICartItem } from "../interfaces/item";
+import { createContext } from 'react';
+import ICartItem from './item';
 
 export interface ICartActions {
-  type: "add_item" | "remove_item";
+  type: 'add_item' | 'remove_item';
   payload: ICartItem;
 }
 
@@ -15,10 +15,10 @@ export const initialCartState: ICartState = {
 };
 
 export const cartReducer = (state: ICartState, action: ICartActions) => {
-  let item = action.payload;
-  let items = { ...state.items };
+  const item = action.payload;
+  const items = { ...state.items };
   switch (action.type) {
-    case "add_item":
+    case 'add_item':
       if (items[item.title]) {
         items[item.title].push(item);
       } else {
@@ -26,7 +26,7 @@ export const cartReducer = (state: ICartState, action: ICartActions) => {
       }
 
       return { ...state, items };
-    case "remove_item":
+    case 'remove_item':
       items[item.title].pop();
 
       if (items[item.title].length === 0) delete items[item.title];

@@ -1,7 +1,7 @@
-import axios from "axios";
-import { CoronaData, Countries, Country, DailyData } from "../types/dataType";
+import axios from 'axios';
+import { CoronaData, Countries, Country, DailyData } from './types/dataType';
 
-const url = "https://covid19.mathdro.id/api";
+const url = 'https://covid19.mathdro.id/api';
 
 export const fetchData = async (country?: string): Promise<CoronaData> => {
   let changeUrl = url;

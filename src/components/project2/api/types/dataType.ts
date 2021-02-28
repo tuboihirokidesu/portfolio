@@ -5,12 +5,12 @@ export type CoronaData = {
   lastUpdate: string;
 };
 
-export type Countries = { countries: { name: string }[] };
-export type Country = { name: string }[];
+export type Countries = { countries: Array<{ name: string }> };
+export type Country = Array<{ name: string }>;
 
-export type DailyData = {
+export type DailyData = Array<{
   confirmed: { total: number };
   deaths: { total: number };
   recovered: { total: number };
   reportDate: string;
-}[];
+}>;

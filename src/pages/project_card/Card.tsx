@@ -1,31 +1,8 @@
-import styled from "styled-components";
-import { cardData } from "../../data/projectCardItem";
-import CardItem from "./CardItems";
-import bgImage from "../../images/coffee-apple.jpg";
-
-const Card: React.FC = () => {
-  return (
-    <Cards>
-      <CardsHeader>Projects</CardsHeader>
-      <CardsContainer>
-        <CardsWrap>
-          {cardData.map((item, index) => (
-            <CardsItems key={index}>
-              <CardItem
-                src={item.src}
-                label={item.label}
-                path={item.path}
-                text={item.text}
-              />
-            </CardsItems>
-          ))}
-        </CardsWrap>
-      </CardsContainer>
-    </Cards>
-  );
-};
-
-export default Card;
+import React from 'react';
+import styled from 'styled-components';
+import { cardData } from 'data/projectCardItem';
+import bgImage from 'images/coffee-apple.jpg';
+import CardItem from './CardItems';
 
 const Cards = styled.div`
   padding: 6rem;
@@ -53,3 +30,25 @@ const CardsItems = styled.ul`
     display: flex;
   }
 `;
+
+const Card: React.FC = () => (
+  <Cards>
+    <CardsHeader>Projects</CardsHeader>
+    <CardsContainer>
+      <CardsWrap>
+        {cardData.map((item) => (
+          <CardsItems key={item.id}>
+            <CardItem
+              src={item.src}
+              label={item.label}
+              path={item.path}
+              text={item.text}
+            />
+          </CardsItems>
+        ))}
+      </CardsWrap>
+    </CardsContainer>
+  </Cards>
+);
+
+export default Card;

@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import {
   Card,
   CardActions,
@@ -6,35 +7,35 @@ import {
   IconButton,
   makeStyles,
   Typography,
-} from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
-import { useContext } from "react";
-import CartContext from "./context/cart";
-import { ICartItem } from "./interfaces/item";
+} from '@material-ui/core';
+import { AddShoppingCart } from '@material-ui/icons';
+
+import CartContext from './cart';
+import ICartItem from './item';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: "100%",
-    heigt: "300px",
+    maxWidth: '100%',
+    heigt: '300px',
   },
   media: {
     height: 0,
-    paddingTop: "56.25%",
+    paddingTop: '56.25%',
   },
 
   cardActions: {
-    display: "flex",
-    justifyContent: "flex-end",
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
   cardContent: {
-    display: "flex",
-    justifyContent: "space-between",
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   subtitle: {
-    width: "20ch",
-    overflow: "hidden",
-    whiteSpace: "nowrap",
-    textOverflow: "ellipsis",
+    width: '20ch',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
   },
 });
 
@@ -42,7 +43,7 @@ type Props = {
   item: ICartItem;
 };
 
-const ShopItem: React.FC<Props> = ({ item }) => {
+const ShopItem = ({ item }: Props) => {
   const classes = useStyles();
   const cartContext = useContext(CartContext);
 
@@ -51,46 +52,31 @@ const ShopItem: React.FC<Props> = ({ item }) => {
       <CardMedia
         className={classes.media}
         image={item.image}
-        title='Contemplative Reptile'
+        title="Contemplative Reptile"
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography variant='body1' gutterBottom>
+          <Typography variant="body1" gutterBottom>
             {item.title}
           </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
+          <Typography variant="body2" color="textSecondary" component="p">
             {item.price}
           </Typography>
         </div>
 
         <Typography
-          variant='subtitle2'
-          color='textSecondary'
+          variant="subtitle2"
+          color="textSecondary"
           className={classes.subtitle}
         >
           {item.description}
         </Typography>
       </CardContent>
-      {/* <CardWrap>
-        <Button
-          size='small'
-          style={{
-            color: "#fff",
-            border: "1px solid #16c1df",
-            backgroundColor: "#16c1df",
-          }}
-          onClick={() => {
-            cartContext.cartDispatch({ type: "add_item", payload: item });
-          }}
-        >
-          カートに入れる
-        </Button>
-      </CardWrap> */}
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton
-          aria-label='Add to Cart'
+          aria-label="Add to Cart"
           onClick={() => {
-            cartContext.cartDispatch({ type: "add_item", payload: item });
+            cartContext.cartDispatch({ type: 'add_item', payload: item });
           }}
         >
           <AddShoppingCart />

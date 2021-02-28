@@ -1,9 +1,9 @@
-import axios from "axios";
-import { ICartItem } from "../interfaces/item";
+import axios from 'axios';
+import ICartItem from './item';
 
-const url = "https://fakestoreapi.com/products";
+const url = 'https://fakestoreapi.com/products';
 
-export const fetchShoppingData = async (): Promise<ICartItem[]> => {
+const fetchShoppingData = async (): Promise<ICartItem[]> => {
   try {
     const { data } = await axios.get<ICartItem[]>(url);
     return data.map((item) => ({
@@ -18,3 +18,5 @@ export const fetchShoppingData = async (): Promise<ICartItem[]> => {
     return error;
   }
 };
+
+export default fetchShoppingData;

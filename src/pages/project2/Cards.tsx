@@ -1,58 +1,8 @@
-import { Grid, LinearProgress, Typography } from "@material-ui/core";
-import styled from "styled-components";
-import { CoronaData } from "../../components/project2/types/dataType";
-import CardContent from "./CardContent";
-
-type Props = {
-  data: CoronaData;
-};
-
-const Cards: React.FC<Props> = ({
-  data: { recovered, lastUpdate, deaths, confirmed },
-}) => {
-  if (!confirmed) return <LinearProgress />;
-  return (
-    <Container>
-      <Grid
-        container
-        xs={12}
-        item
-        spacing={1}
-        direction='column'
-        alignItems='center'
-      >
-        <Typography gutterBottom variant='h4' component='h2'>
-          Corona Virus
-        </Typography>
-        <Wrap>
-          <CardContent
-            cardTitle='Infected'
-            value={confirmed.value}
-            lastUpdate={lastUpdate}
-            cardSubtitle='Number of active cases from COVID-19.'
-            className='infected'
-          />
-          <CardContent
-            cardTitle='Recovered'
-            value={recovered.value}
-            lastUpdate={lastUpdate}
-            cardSubtitle='Number of recoveries from COVID-19.'
-            className='recovered'
-          />
-          <CardContent
-            cardTitle='Deaths'
-            value={deaths.value}
-            lastUpdate={lastUpdate}
-            cardSubtitle='Number of deaths caused by COVID-19.'
-            className='deaths'
-          />
-        </Wrap>
-      </Grid>
-    </Container>
-  );
-};
-
-export default Cards;
+import React from 'react';
+import { Grid, LinearProgress, Typography } from '@material-ui/core';
+import styled from 'styled-components';
+import { CoronaData } from 'components/project2/api/types/dataType';
+import CardContent from './CardContent';
 
 const Container = styled.div`
   grid-row: 1 / 3;
@@ -70,3 +20,54 @@ const Wrap = styled.div`
     flex-direction: column;
   }
 `;
+
+type Props = {
+  data: CoronaData;
+};
+
+const Cards = ({
+  data: { recovered, lastUpdate, deaths, confirmed },
+}: Props) => {
+  if (!confirmed) return <LinearProgress />;
+  return (
+    <Container>
+      <Grid
+        container
+        xs={12}
+        item
+        spacing={1}
+        direction="column"
+        alignItems="center"
+      >
+        <Typography gutterBottom variant="h4" component="h2">
+          Corona Virus
+        </Typography>
+        <Wrap>
+          <CardContent
+            cardTitle="Infected"
+            value={confirmed.value}
+            lastUpdate={lastUpdate}
+            cardSubtitle="Number of active cases from COVID-19."
+            className="infected"
+          />
+          <CardContent
+            cardTitle="Recovered"
+            value={recovered.value}
+            lastUpdate={lastUpdate}
+            cardSubtitle="Number of recoveries from COVID-19."
+            className="recovered"
+          />
+          <CardContent
+            cardTitle="Deaths"
+            value={deaths.value}
+            lastUpdate={lastUpdate}
+            cardSubtitle="Number of deaths caused by COVID-19."
+            className="deaths"
+          />
+        </Wrap>
+      </Grid>
+    </Container>
+  );
+};
+
+export default Cards;

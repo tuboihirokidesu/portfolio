@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { ICartItem } from "../../components/project3/interfaces/item";
-import { fetchShoppingData } from "../../components/project3/api/index";
+import React, { useEffect, useState } from 'react';
 import {
   createStyles,
   Grid,
   LinearProgress,
   makeStyles,
   Theme,
-} from "@material-ui/core";
-import { ShopItem } from "../../components/project3";
+} from '@material-ui/core';
+import { ShopItem } from 'components/project3';
+import ICartItem from 'components/project3/item';
+import fetchShoppingData from 'components/project3/api';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     loading: {
-      marginTop: "7%",
+      marginTop: '7%',
     },
-  })
+  }),
 );
 
 const Shop = () => {
@@ -50,9 +50,9 @@ const Shop = () => {
       ) : (
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Grid container justify='center' spacing={4}>
-            {data.map((item, i) => (
-              <Grid item key={i} xs={12} sm={6} md={4} lg={3}>
+          <Grid container justify="center" spacing={4}>
+            {data.map((item) => (
+              <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
                 <ShopItem item={item} />
               </Grid>
             ))}

@@ -1,12 +1,12 @@
-import { useReducer } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useReducer } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import shoppingRoutes from 'config/shoppingRoutes';
 import {
   CartContextProvider,
   cartReducer,
   initialCartState,
-} from "../../components/project3/context/cart";
-import { Navigation } from "../../components/project3";
-import { shoppingRoutes } from "../../config/shoppingRoutes";
+} from 'components/project3/cart';
+import { Navigation } from 'components/project3';
 
 const ShoppingCart = () => {
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
@@ -20,16 +20,14 @@ const ShoppingCart = () => {
       <CartContextProvider value={cartContextValues}>
         <Navigation />
         <Switch>
-          {shoppingRoutes.map((route, index) => {
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
-              />
-            );
-          })}
+          {shoppingRoutes.map((route) => (
+            <Route
+              key={route.id}
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+            />
+          ))}
         </Switch>
       </CartContextProvider>
     </>

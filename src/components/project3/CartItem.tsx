@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import {
   Button,
   Card,
@@ -5,33 +6,33 @@ import {
   CardContent,
   makeStyles,
   Typography,
-} from "@material-ui/core";
-import { useContext } from "react";
-import CartContext from "./context/cart";
-import { ICartItem } from "./interfaces/item";
+} from '@material-ui/core';
+
+import CartContext from './cart';
+import ICartItem from './item';
 
 const useStyles = makeStyles({
   root: {
     width: 300,
-    margin: "10px",
+    margin: '10px',
   },
   media: {
     height: 140,
   },
 });
 
-type Prop = {
+type Props = {
   item: ICartItem;
   quantity: number;
 };
 
-const CartItem: React.FC<Prop> = ({ item, quantity }) => {
+const CartItem = ({ item, quantity }: Props) => {
   const classes = useStyles();
   const cartContext = useContext(CartContext);
   return (
-    <Card variant='outlined' className={classes.root}>
+    <Card variant="outlined" className={classes.root}>
       <CardContent>
-        <Typography color='textSecondary' gutterBottom>
+        <Typography color="textSecondary" gutterBottom>
           {item.title}*{quantity}
         </Typography>
         <br />
@@ -39,9 +40,9 @@ const CartItem: React.FC<Prop> = ({ item, quantity }) => {
       </CardContent>
       <CardActions>
         <Button
-          size='small'
+          size="small"
           onClick={() => {
-            cartContext.cartDispatch({ type: "remove_item", payload: item });
+            cartContext.cartDispatch({ type: 'remove_item', payload: item });
           }}
         >
           Remove

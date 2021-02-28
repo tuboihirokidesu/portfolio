@@ -1,29 +1,6 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-type Props = {
-  src: string;
-  text: string;
-  label: string;
-  path: string;
-};
-
-const CardItem: React.FC<Props> = ({ src, text, label, path }) => {
-  return (
-    <CardsItem>
-      <CardsItemLink to={path}>
-        <CardsPicWrap data-category={label}>
-          <CardsImage src={src} />
-        </CardsPicWrap>
-        <CardsItemInfo>
-          <CardsItemText>{text}</CardsItemText>
-        </CardsItemInfo>
-      </CardsItemLink>
-    </CardsItem>
-  );
-};
-
-export default CardItem;
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const CardsItem = styled.li`
   display: flex;
@@ -92,3 +69,25 @@ const CardsItemText = styled.h5`
   display: flex;
   justify-content: center;
 `;
+
+type Props = {
+  src: string;
+  text: string;
+  label: string;
+  path: string;
+};
+
+const CardItem = ({ src, text, label, path }: Props) => (
+  <CardsItem>
+    <CardsItemLink to={path}>
+      <CardsPicWrap data-category={label}>
+        <CardsImage src={src} />
+      </CardsPicWrap>
+      <CardsItemInfo>
+        <CardsItemText>{text}</CardsItemText>
+      </CardsItemInfo>
+    </CardsItemLink>
+  </CardsItem>
+);
+
+export default CardItem;

@@ -1,49 +1,8 @@
-import styled from "styled-components";
-import { Button } from "./Button";
-import Typed from "react-typed";
-import bgImage from "../images/coffee-apple.jpg";
-import Particles from "react-particles-js";
-
-const HeroSection = () => {
-  return (
-    <>
-      <Particle
-        params={{
-          particles: {
-            number: {
-              value: 30,
-              density: {
-                enable: true,
-                value_area: 900,
-              },
-            },
-            shape: {
-              type: "circle",
-              stroke: {
-                width: 6,
-                color: "#f9ab00",
-              },
-            },
-          },
-        }}
-      />
-      <HeroContainer className='image-styled'>
-        <HeroHeader strings={["Portfolio"]} typeSpeed={80} />
-        <HeroParagraph
-          strings={["Hiroki", "Tsuboi"]}
-          typeSpeed={70}
-          backSpeed={40}
-          loop
-        />
-        {/* <HeroBtnWrap>
-          <Button to='/contact'>GET STARTED</Button>
-        </HeroBtnWrap> */}
-      </HeroContainer>
-    </>
-  );
-};
-
-export default HeroSection;
+import React from 'react';
+import styled from 'styled-components';
+import Typed from 'react-typed';
+import Particles from 'react-particles-js';
+import bgImage from 'images/coffee-apple.jpg';
 
 const Particle = styled(Particles)`
   position: absolute;
@@ -77,14 +36,53 @@ const HeroParagraph = styled(Typed)`
   margin-top: 8px;
   color: #fa923f;
   font-size: 32px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 
   @media screen and (max-width: 960px) {
     font-size: 30px;
   }
 `;
-const HeroBtnWrap = styled.div`
-  margin-top: 32px;
-  z-index: 2;
-`;
+// const HeroBtnWrap = styled.div`
+//   margin-top: 32px;
+//   z-index: 2;
+// `;
+
+const HeroSection = () => (
+  <>
+    <Particle
+      params={{
+        particles: {
+          number: {
+            value: 30,
+            density: {
+              enable: true,
+              value_area: 900,
+            },
+          },
+          shape: {
+            type: 'circle',
+            stroke: {
+              width: 6,
+              color: '#f9ab00',
+            },
+          },
+        },
+      }}
+    />
+    <HeroContainer className="image-styled">
+      <HeroHeader strings={['Portfolio']} typeSpeed={80} />
+      <HeroParagraph
+        strings={['Hiroki', 'Tsuboi']}
+        typeSpeed={70}
+        backSpeed={40}
+        loop
+      />
+      {/* <HeroBtnWrap>
+          <Button to='/contact'>GET STARTED</Button>
+        </HeroBtnWrap> */}
+    </HeroContainer>
+  </>
+);
+
+export default HeroSection;

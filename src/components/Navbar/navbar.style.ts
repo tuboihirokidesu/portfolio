@@ -1,66 +1,7 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { navMenuData } from "../data/navMenuData";
-import { Button } from "./Button";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
-const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const [scroll, setScroll] = useState(false);
-
-  const closeMobileMenu = () => setClick(false);
-
-  const changeBackground = () => {
-    if (window.scrollY >= 80) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-    return () => {
-      window.removeEventListener("scroll", changeBackground);
-    };
-  }, []);
-
-  const handleClick = () => setClick(!click);
-  return (
-    <Nav
-      className={scroll ? "scroll-bg-change" : "click-bg-change"}
-      scroll={scroll}
-      click={click}
-    >
-      <IconWrap onClick={handleClick}>
-        <MenuIcon className={click ? "fas fa-times" : "fas fa-bars"} />
-      </IconWrap>
-      <NavMenu click={click}>
-        {navMenuData.map((item, index) => (
-          <NavItems key={index}>
-            <NavMenuLinks
-              to={item.link}
-              onClick={closeMobileMenu}
-              className={item.class}
-              exact
-            >
-              {item.title}
-            </NavMenuLinks>
-          </NavItems>
-        ))}
-      </NavMenu>
-      <NavBtn>
-        <Button to='/portfolio/contact' primary big={false}>
-          Contact
-        </Button>
-      </NavBtn>
-    </Nav>
-  );
-};
-
-export default Navbar;
-
-const Nav = styled.nav<{ scroll: boolean; click: boolean }>`
+export const Nav = styled.nav<{ scroll: boolean; click: boolean }>`
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -70,14 +11,14 @@ const Nav = styled.nav<{ scroll: boolean; click: boolean }>`
   position: fixed;
   z-index: 100;
   &.scroll-bg-change {
-    background: ${({ scroll }) => (scroll ? "#242424" : "transparent")};
+    background: ${({ scroll }) => (scroll ? '#242424' : 'transparent')};
   }
   &.click-bg-change {
-    background: ${({ click }) => (click ? "#242424" : "transparent")};
+    background: ${({ click }) => (click ? '#242424' : 'transparent')};
     transition: all 0.5s ease;
   }
 `;
-const IconWrap = styled.div`
+export const IconWrap = styled.div`
   display: none;
   @media screen and (max-width: 960px) {
     display: block;
@@ -89,13 +30,13 @@ const IconWrap = styled.div`
     transform: translate(-50%, 50%);
   }
 `;
-const MenuIcon = styled.i`
+export const MenuIcon = styled.i`
   width: 100%;
   height: 100%;
   font-size: 2rem;
   color: #fff;
 `;
-const NavMenu = styled.ul<{ click: boolean }>`
+export const NavMenu = styled.ul<{ click: boolean }>`
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
@@ -115,17 +56,17 @@ const NavMenu = styled.ul<{ click: boolean }>`
     height: 100vh;
     width: 100%;
     opacity: 1;
-    background: ${({ click }) => (click ? "#242424" : "")};
+    background: ${({ click }) => (click ? '#242424' : '')};
     opacity: ${({ click }) => (click ? 1 : 0)};
-    left: ${({ click }) => (click ? "0" : "-100%")};
+    left: ${({ click }) => (click ? '0' : '-100%')};
   }
 `;
-const NavItems = styled.li`
+export const NavItems = styled.li`
   display: flex;
   justify-self: center;
   align-items: center;
 `;
-const NavMenuLinks = styled(NavLink)`
+export const NavMenuLinks = styled(NavLink)`
   &.nav-links {
     color: #fff;
     display: flex;
@@ -169,7 +110,7 @@ const NavMenuLinks = styled(NavLink)`
     }
   }
 `;
-const NavBtn = styled.div`
+export const NavBtn = styled.div`
   display: flex;
   align-items: center;
   margin-right: 20px;
