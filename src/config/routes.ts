@@ -3,6 +3,7 @@ import About from 'pages/About';
 import Project from 'pages/Project';
 import NoughtsAndCrosses from 'pages/project1/NoughtsAndCrosses';
 import Corona from 'pages/project2/Corona';
+import Calender from 'pages/project4/Calrender';
 import { IRoute } from './Interfaces';
 
 const routes: IRoute[] = [
@@ -39,6 +40,13 @@ const routes: IRoute[] = [
     path: '/portfolio/project/corona',
     name: 'corona',
     component: Corona,
+    exact: true,
+  },
+  {
+    id: '5',
+    path: '/portfolio/project/calender',
+    name: 'calender',
+    component: Calender,
     exact: true,
   },
 ];

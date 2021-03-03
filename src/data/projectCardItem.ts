@@ -31,9 +31,9 @@ export const cardData: CardData = [
   {
     id: '3',
     src: 'images/pg-image.jpg',
-    text: 'Dddddddddddddddddddddddddddddddddddd',
-    label: 'Tailwind CSS',
-    path: './D',
+    text: 'Appleカレンダー',
+    label: 'moment.js',
+    path: './project/calender',
   },
   {
     id: '4',
