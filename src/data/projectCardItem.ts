@@ -30,7 +30,7 @@ export const cardData: CardData = [
   },
   {
     id: '3',
-    src: 'images/pg-image.jpg',
+    src: 'images/calender.jpg',
     text: 'Appleカレンダー',
     label: 'moment.js',
     path: './project/calender',
