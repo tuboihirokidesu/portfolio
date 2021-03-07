@@ -8,9 +8,6 @@ const Cards = styled.div`
   padding: 6rem;
   background-image: url(${bgImage});
 `;
-const CardsHeader = styled.h1`
-  text-align: center;
-`;
 const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,7 +30,6 @@ const CardsItems = styled.ul`
 
 const Card: React.FC = () => (
   <Cards>
-    <CardsHeader>Projects</CardsHeader>
     <CardsContainer>
       <CardsWrap>
         {cardData.map((item) => (

@@ -1,5 +1,5 @@
 import Home from 'pages/Home';
-import About from 'pages/About';
+import Article from 'pages/Article';
 import Project from 'pages/Project';
 import NoughtsAndCrosses from 'pages/project1/NoughtsAndCrosses';
 import Corona from 'pages/project2/Corona';
@@ -16,9 +16,9 @@ const routes: IRoute[] = [
   },
   {
     id: '1',
-    path: '/portfolio/about',
-    name: 'about',
-    component: About,
+    path: '/portfolio/article',
+    name: 'Article Page',
+    component: Article,
     exact: true,
   },
   {
