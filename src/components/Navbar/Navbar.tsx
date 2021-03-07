@@ -57,8 +57,12 @@ const Navbar = () => {
         ))}
       </NavMenu>
       <NavBtn>
-        <Button to="/portfolio/contact" primary big={false}>
-          Contact
+        <Button
+          href="https://github.com/tuboihirokidesu/portfolio"
+          primary
+          big={false}
+        >
+          GitHub
         </Button>
       </NavBtn>
     </Nav>

@@ -22,7 +22,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroHeader = styled(Typed)`
-  color: tomato;
+  color: #fa923f;
   font-weight: 600;
   font-size: 100px;
   margin-top: 200px;
@@ -34,7 +34,7 @@ const HeroHeader = styled(Typed)`
 `;
 const HeroParagraph = styled(Typed)`
   margin-top: 8px;
-  color: #fa923f;
+  color: #fff;
   font-size: 32px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;

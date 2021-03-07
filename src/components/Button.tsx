@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 interface Btn {
   primary: boolean;
@@ -9,7 +8,7 @@ interface Btn {
   buttonSize: string;
 }
 
-const Button = styled(Link)<Partial<Btn>>`
+const Button = styled.a<Partial<Btn>>`
   background: ${({ primary }) => (primary ? '#000d1a' : '#cd853f')};
   white-space: none;
   border: none;
@@ -18,6 +17,8 @@ const Button = styled(Link)<Partial<Btn>>`
   cursor: pointer;
   text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 2px;
   transition: 0.3s;
   display: flex;
   justify-content: center;

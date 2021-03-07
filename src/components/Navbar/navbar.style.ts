@@ -65,12 +65,13 @@ export const NavItems = styled.li`
   display: flex;
   justify-self: center;
   align-items: center;
+  margin-bottom: 10px;
 `;
 export const NavMenuLinks = styled(NavLink)`
   &.nav-links {
     color: #fff;
     display: flex;
-    height: 100%;
+    height: 80%;
     justify-self: center;
     text-decoration: none;
     align-items: center;
@@ -99,7 +100,7 @@ export const NavMenuLinks = styled(NavLink)`
       text-align: center;
       margin: 2rem auto;
       border-radius: 4px;
-      width: 100%;
+      width: 80%;
       text-decoration: none;
       font-size: 1.5rem;
       background-color: transparent;
