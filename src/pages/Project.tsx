@@ -1,8 +1,7 @@
-import React from 'react';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
 import Navbar from 'components/Navbar/Navbar';
-import Card from './project_card/Card';
+import Card from './project_card/ProjectCard';
 
 const Particle = styled(Particles)`
   position: absolute;

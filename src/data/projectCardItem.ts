@@ -1,12 +1,6 @@
-export type CardData = Array<{
-  id: string;
-  src: string;
-  text: string;
-  label: string;
-  path: string;
-}>;
+import { ICardData } from './interface';
 
-export const cardData: CardData = [
+const projectCardData: ICardData[] = [
   {
     id: '0',
     src: 'images/noughts-and-crosses.png',
@@ -43,3 +37,5 @@ export const cardData: CardData = [
     path: './F',
   },
 ];
+
+export default projectCardData;

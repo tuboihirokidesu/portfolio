@@ -1,10 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const CardsItem = styled.li`
   display: flex;
+  justify-content: center;
   flex: 1;
+  width: 100%;
+  height: 100%;
   margin: 0 1rem;
   border-radius: 10px;
 
@@ -12,7 +13,7 @@ const CardsItem = styled.li`
     margin-bottom: 2rem;
   }
 `;
-const CardsItemLink = styled(Link)`
+const CardsItemLink = styled.a`
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -77,9 +78,9 @@ type Props = {
   path: string;
 };
 
-const CardItem = ({ src, text, label, path }: Props) => (
+const ArticleCardItem = ({ src, text, label, path }: Props) => (
   <CardsItem>
-    <CardsItemLink to={path}>
+    <CardsItemLink href={path}>
       <CardsPicWrap data-category={label}>
         <CardsImage src={src} />
       </CardsPicWrap>
@@ -90,4 +91,4 @@ const CardItem = ({ src, text, label, path }: Props) => (
   </CardsItem>
 );
 
-export default CardItem;
+export default ArticleCardItem;

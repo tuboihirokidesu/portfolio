@@ -1,19 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { cardData } from 'data/projectCardItem';
 import bgImage from 'images/coffee-apple.jpg';
-import CardItem from './CardItems';
+import articleCardData from 'data/articleCardItem';
+import ArticleCardItem from './ArticleCardItems';
 
 const Cards = styled.div`
   padding: 6rem;
   background-image: url(${bgImage});
+  height: 100vh;
 `;
 const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1120px;
-  width: 90%;
+  max-width: 900px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
 `;
 const CardsWrap = styled.div`
@@ -28,13 +30,13 @@ const CardsItems = styled.ul`
   }
 `;
 
-const Card: React.FC = () => (
+const ArticleCard: React.FC = () => (
   <Cards>
     <CardsContainer>
       <CardsWrap>
-        {cardData.map((item) => (
+        {articleCardData.map((item) => (
           <CardsItems key={item.id}>
-            <CardItem
+            <ArticleCardItem
               src={item.src}
               label={item.label}
               path={item.path}
@@ -47,4 +49,4 @@ const Card: React.FC = () => (
   </Cards>
 );
 
-export default Card;
+export default ArticleCard;
