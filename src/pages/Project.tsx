@@ -6,7 +6,7 @@ import Card from './project_card/ProjectCard';
 const Particle = styled(Particles)`
   position: absolute;
   width: 100%;
-  height: 2300px;
+  height: 100%;
 `;
 
 const Project = () => (

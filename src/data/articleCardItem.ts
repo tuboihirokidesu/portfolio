@@ -12,7 +12,7 @@ const articleCardData: ICardData[] = [
     id: '1',
     src: 'images/pg-image.jpg',
     text: 'Rest API',
-    label: 'Node.js',
+    label: 'express & MongoDB',
     path: 'https://zenn.dev/tsuboi/articles/c679afd75be97b',
   },
 ];
