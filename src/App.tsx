@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import routes from 'config/routes';
 import GlobalStyle from 'globalStyle';
-import ShoppingCart from 'pages/project3/ShoppingCart';
+import projectRoutes from 'config/projectRoutes';
 
 const App = () => (
   <>
@@ -18,7 +18,21 @@ const App = () => (
           )}
         />
       ))}
-      <ShoppingCart />
+      <Route
+        path="/portfolio/project"
+        render={({ match: { url } }) => (
+          <Switch>
+            {projectRoutes.map((route) => (
+              <Route
+                key={route.id}
+                path={`${url}${route.path}`}
+                exact={route.exact}
+                component={route.component}
+              />
+            ))}
+          </Switch>
+        )}
+      />
     </Switch>
   </>
 );

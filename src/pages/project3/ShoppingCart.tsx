@@ -1,6 +1,4 @@
 import React, { useReducer } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import shoppingRoutes from 'config/shoppingRoutes';
 import {
   CartContextProvider,
   cartReducer,
@@ -19,16 +17,6 @@ const ShoppingCart = () => {
     <>
       <CartContextProvider value={cartContextValues}>
         <Navigation />
-        <Switch>
-          {shoppingRoutes.map((route) => (
-            <Route
-              key={route.id}
-              path={route.path}
-              exact={route.exact}
-              component={route.component}
-            />
-          ))}
-        </Switch>
       </CartContextProvider>
     </>
   );

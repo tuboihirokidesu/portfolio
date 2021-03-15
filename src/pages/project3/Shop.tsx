@@ -9,6 +9,7 @@ import {
 import { ShopItem } from 'components/project3';
 import ICartItem from 'components/project3/item';
 import fetchShoppingData from 'components/project3/api';
+import ShoppingCart from './ShoppingCart';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,6 +44,7 @@ const Shop = () => {
 
   return (
     <>
+      <ShoppingCart />
       {isLoading ? (
         <div className={classes.loading}>
           <LinearProgress />
