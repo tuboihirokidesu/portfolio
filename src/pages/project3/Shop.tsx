@@ -6,10 +6,9 @@ import {
   makeStyles,
   Theme,
 } from '@material-ui/core';
-import { ShopItem } from 'components/project3';
+import { ShopItem, Navigation } from 'components/project3';
 import ICartItem from 'components/project3/item';
 import fetchShoppingData from 'components/project3/api';
-import ShoppingCart from './ShoppingCart';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,7 +43,7 @@ const Shop = () => {
 
   return (
     <>
-      <ShoppingCart />
+      <Navigation />
       {isLoading ? (
         <div className={classes.loading}>
           <LinearProgress />

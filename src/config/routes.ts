@@ -15,7 +15,7 @@ const routes: IRoute[] = [
     path: '/portfolio/article',
     name: 'Article Page',
     component: Article,
-    exact: true,
+    exact: false,
   },
 ];
 

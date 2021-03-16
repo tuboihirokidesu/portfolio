@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import CartContext from './cart';
 
 const drawerWidth = 0;
@@ -80,9 +80,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Navigation = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   const [count, setCount] = useState<number>(0);
   const cartContext = useContext(CartContext);
+
+  const onClickCart = () => history.push('./cart');
 
   useEffect(() => {
     let num = 0;
@@ -118,8 +121,7 @@ const Navigation = () => {
             <IconButton
               aria-label="Show Cart Items"
               color="inherit"
-              component={Link}
-              to="./shopping-cart/cart"
+              onClick={onClickCart}
             >
               <Badge badgeContent={count} color="secondary">
                 <ShoppingCart />
@@ -133,10 +135,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-// const StyledButton = styled(IconButton)`
-//   position: fixed;
-//   z-index: 100;
-//   right: 20px;
-//   top: 10px;
-// `;
